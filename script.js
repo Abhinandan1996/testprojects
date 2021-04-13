@@ -6,14 +6,14 @@ changebg();
 
 btn.addEventListener("click", changebg);
 function changebg(){
-    num = Math.random()*1677216;
-    num = Math.floor(num);
-    str = num.toString(16);
+    str = "#";
+    let i;
+    for(i = 0; i < 6; i++){
+        let sam = "0123456789abcdef";
+        num = Math.random() * 16;
+        num = Math.floor(num);
+        str = str + sam[num];
+    }
+    bg.style.backgroundColor =str;
     console.log(str);
-
-    if(str.length < 6)str = "#" +"0"*(6-str.length)+ str;
-    else str = "#" + str;
-    console.log(str);
-    bg.style.backgroundColor = str;
-    document.getElementById("cname").textContent = str;
 }
