@@ -1,6 +1,7 @@
 let btn = document.getElementById("btn");
 let bg = document.getElementById("bg");
 let num;
+let edit = document.getElementById("cname");
 let str;
 changebg();
 
@@ -13,6 +14,8 @@ function changebg(){
         num = Math.random() * 16;
         num = Math.floor(num);
         str = str + sam[num];
+        edit.textContent = str;
+        
     }
     bg.style.backgroundColor =str;
     console.log(str);
