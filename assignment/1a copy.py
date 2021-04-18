@@ -67,10 +67,13 @@ K_ = np.linalg.inv(K_)
 u = np.dot(K_, F_)
 u = np.insert(u,0,[0],axis=0)
 print(u)
+fig, ax = pyplot.subplots(2)
 x = nodes
 y = u
-pyplot.plot(x,y,'b',label="one side roller other is hinged")
-
+ax[0].plot(x,y,'b',label="one side roller other is hinged")
+ax[0].legend()
+ax[0].set_xlabel("distance form left")
+ax[0].set_ylabel("deflection")
 
 print("for both side hinged")
 
@@ -82,8 +85,8 @@ u2 = np.append(u2,[0])
 x = nodes
 y = u2
 print(u2)
-pyplot.plot(x,y,'r',label="both sides hinged")
-pyplot.legend()
-pyplot.xlabel("distance form left")
-pyplot.ylabel("deflection")
+ax[1].plot(x,y,'r',label="both sides hinged")
+ax[1].legend()
+ax[1].set_xlabel("distance form left")
+ax[1].set_ylabel("deflection")
 pyplot.show()
