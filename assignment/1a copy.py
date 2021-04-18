@@ -60,10 +60,6 @@ while(index<n):
     index+=1
 
 
-print(Fmatrix)
-print(Kmatrix)
-
-
 print("for first joint hinged and other end roller")
 
 K_, F_ = Kmatrix[1:,1:],Fmatrix[1:,0:]
