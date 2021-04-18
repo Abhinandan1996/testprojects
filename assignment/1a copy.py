@@ -69,7 +69,7 @@ u = np.insert(u,0,[0],axis=0)
 print(u)
 x = nodes
 y = u
-pyplot.plot(x,y)
+pyplot.plot(x,y,'b',label="one side roller other is hinged")
 
 
 print("for both side hinged")
@@ -82,5 +82,8 @@ u2 = np.append(u2,[0])
 x = nodes
 y = u2
 print(u2)
-pyplot.plot(x,y)
+pyplot.plot(x,y,'r',label="both sides hinged")
+pyplot.legend()
+pyplot.xlabel("distance form left")
+pyplot.ylabel("deflection")
 pyplot.show()
