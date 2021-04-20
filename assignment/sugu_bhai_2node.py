@@ -50,4 +50,49 @@ for i in range(n):
 print(K)
 
 for i in range(n):
-    
+    xe  = coor[i][0]
+    xe1 = coor[i][1]
+    F[i][0] += c * he[i]/2 * (-1/6*(he[i]) + (xe + xe1)/2)
+    F[i+1][0] += c * he[i]/2 * (1/6*(he[i]) + (xe + xe1)/2)
+
+
+tempF = F.copy()
+tempK = K.copy()
+
+# hinged roller, def node 1= 0
+tempF=np.delete(tempF, 0, axis = 0)
+
+tempK=np.delete(tempK, 0, axis = 0)
+tempK=np.delete(tempK, 0, axis = 1)
+Kinv = np.linalg.inv(tempK)
+u = np.dot(Kinv, tempF)
+
+u = np.insert(u,0,[0],axis=0)
+print(u)
+y = u
+x = nodes
+
+plt.plot(x,y)
+
+#hinged hinged node 1 = node n + 1 = 0
+tempF = F.copy()
+tempK = K.copy()
+
+tempF=np.delete(tempF, n, axis = 0)
+tempF=np.delete(tempF, 0, axis = 0)
+tempK=np.delete(tempK, n, axis = 0)
+tempK=np.delete(tempK, n, axis = 1)
+tempK=np.delete(tempK, 0, axis = 0)
+tempK=np.delete(tempK, 0, axis = 1)
+
+Kinv = np.linalg.inv(tempK)
+u = np.dot(Kinv, tempF)
+
+u = np.insert(u,0,[0],axis=0)
+u = np.append(u,[0])
+
+y = u
+x = nodes
+print(u)
+plt.plot(x,y)
+plt.show()
