@@ -4,9 +4,9 @@ import scipy.integrate as sp
 from matplotlib import pyplot
 
 n = int(input("elements: "))
-l = int(input("length: "))
-e = int(input("Young's modulus: "))
-a = int(input("area: "))
+l = float(input("length: "))
+e = float(input("Young's modulus: "))
+a = float(input("area: "))
 
 q = input("user generated nodes except start and end points(y/n): ")
 nodes = []
