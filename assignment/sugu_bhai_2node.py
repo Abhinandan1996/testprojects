@@ -7,15 +7,11 @@ e = 1
 a = 1
 c = 1
 
-
-
 nodes = []
 i = 0
 while(i <= l):
     nodes.append(i)
     i = i + l/(n)
-
-
 
 q = input("user generated nodes except start and end points(y/n): ")
 if(q=="y" or q=="Y"):
@@ -77,6 +73,7 @@ plt.plot(x,y)
 #hinged hinged node 1 = node n + 1 = 0
 tempF = F.copy()
 tempK = K.copy()
+
 
 tempF=np.delete(tempF, n, axis = 0)
 tempF=np.delete(tempF, 0, axis = 0)
