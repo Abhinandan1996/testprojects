@@ -83,4 +83,3 @@ pyplot.legend()
 pyplot.xlabel("distance form left")
 pyplot.ylabel("deflection")
 pyplot.show()
-
