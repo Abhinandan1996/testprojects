@@ -34,20 +34,20 @@ for i in range(n):
     he = nodes[i+1] - nodes[i]
     t = 2*i
     t2 = a * e / he
-    K[t][t]   = c * 2.333333333
-    K[t][t+1] = - c * 2.6666666666
-    K[t][t+2] = c * .333333333333
-    K[t+1][t] = K[t][t+1]
-    K[t+1][t+1] = c * 5.3333333333333
-    K[t+1][t+2] = - c * 2.6666666666
-    K[t+2][t] = K[t][t+2]
-    K[t+2][t+1] = K[t+1][t+2]
-    K[t+2][t+2] = c * 2.333333333333
+    K[t][t]        += c * 2.333333333
+    K[t][t+1]      += - c * 2.6666666666
+    K[t][t+2]      += c * .333333333333
+    K[t+1][t]      += K[t][t+1]
+    K[t+1][t+1]    += c * 5.3333333333333
+    K[t+1][t+2]    += - c * 2.6666666666
+    K[t+2][t]      += K[t][t+2]
+    K[t+2][t+1]    += K[t+1][t+2]
+    K[t+2][t+2]    += c * 2.333333333333
     #F
     xe = (nodes[i+1] + nodes[i])/2
-    F[t] = 1.33333333 * xe - .6666666666*he
-    F[t+1] = 5.33333333 * xe
-    F[t+2] = 1.33333333 * xe + .6666666666*he
+    F[t]   += c * he / 8 *(1.33333333 * xe - .6666666666*he)
+    F[t+1] += c * he / 8 *(5.33333333 * xe)
+    F[t+2] += c * he / 8 *(1.33333333 * xe + .6666666666*he)
 
 
 all_nodes = []
@@ -68,7 +68,6 @@ Kinv = np.linalg.inv(tempK)
 u = np.dot(Kinv, tempF)
 
 u = np.insert(u,0,[0],axis=0)
-print(u)
 y = u
 x = all_nodes
 
@@ -94,6 +93,6 @@ u = np.append(u,[0])
 
 y = u
 x = all_nodes
-print(u)
 plt.plot(x,y)
+print(F, sum(F))
 plt.show()
