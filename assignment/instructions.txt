@@ -1,0 +1,15 @@
+matplotlib, scipy, numpy should be installed to run these programs
+
+**To install this python packages use these commands in powershell
+pip3 install matplotlib
+pip3 install numpy
+pip3 install scipy
+
+**alternatively you can use
+https://trinket.io/python3
+to run python online with all required packages installed
+
+you can use to print element by adding these at the end of the file:
+displacement : print(u)
+stiffness matrix : print(K)
+force matrix : print(F)
